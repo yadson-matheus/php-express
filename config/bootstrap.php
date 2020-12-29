@@ -1,6 +1,6 @@
 <?php 
-    require_once 'constants.php';
-    require_once '../vendor/AutoLoader/AutoLoader.php';
+    require_once "constants.php";
+    require_once VENDOR_PATH . "/AutoLoader/AutoLoader.php";
 
     use AutoLoader\AutoLoader;
 

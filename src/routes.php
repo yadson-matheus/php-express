@@ -7,5 +7,5 @@
 
     $userController = new UserController();
 
-    $routes->get('/user', $userController->index);
-    $routes->post('/user', $userController->add);
+    $routes->post("/user/add", $userController->add);
+    $routes->get("/user/view/{id}", $userController->view);

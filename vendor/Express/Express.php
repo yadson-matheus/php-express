@@ -5,16 +5,11 @@
     use Express\Router;
 
     class Express {
-        private $method;
-        private $uri;
-        private $path;
-        private $param;
-        private $query;
+        private $request;
         private $router;
 
         public function __construct() {
-            $request = new Request();
-
+            $this->request = new Request();
         }
 
         public function use(Router $router) {
@@ -22,6 +17,14 @@
         }
 
         public function listen() {
-            
+            $uri = $this->request->getUri();
+            $method = $this->request->getMethod();
+            $routes = $this->router->getRoute($method, $uri);
+
+            if ($routes) {
+                foreach ($routes as $route) {
+                    call_user_func_array($route, [$this->request]);
+                }   
+            }
         }
 	}

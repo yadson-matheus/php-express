@@ -1,16 +1,15 @@
 <?php 
     namespace Controllers;
 
-    class UserController {
-        public function index() {
-            echo 'index method';
+    use Controller\AppController;
+    use Http\Request;
+
+    class UserController extends AppController {
+        public function add(Request $request) {
+            debug($request);
         }
 
-        public function add() {
-            echo 'add method';
-        }
-
-        public function __get($method) {
-            return (object) [$this, $method];
+        public function view(Request $request) {
+            debug($request);
         }
 	}
